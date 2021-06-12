@@ -143,4 +143,8 @@ public class Controller : MonoBehaviour
         ResetHorizontalVelocity();
         isActive = !isActive;
     }
+
+    public bool getIsActive() {
+        return isActive;
+    }
 }
