@@ -32,6 +32,9 @@ public class Controller : MonoBehaviour
 
     private bool facingRight = true;
 
+    private bool capRight = false;
+    private bool capLeft = false;
+
     void Awake() {
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerCollider = transform.GetComponent<BoxCollider2D>();
@@ -82,7 +85,15 @@ public class Controller : MonoBehaviour
         isGrounded = PlayerIsGrounded();
 
         // Get horizontal movement
-        Vector2 input = new Vector2(Input.GetAxis("Horizontal"), 0);
+        Vector2 input = new Vector2(Input.GetAxis("Horizontal"), 0f);
+        if (capRight && input.x > 0f) {
+            movement = Vector2.zero;
+            return;
+        }
+        if (capLeft && input.x < 0f) {
+            movement = Vector2.zero;
+            return;
+        }
         isMoving = input.x != 0f;
         movement = input;
     }
@@ -146,5 +157,18 @@ public class Controller : MonoBehaviour
 
     public bool getIsActive() {
         return isActive;
+    }
+
+    public void CapRight() {
+        capRight = true;
+    }
+    
+    public void CapLeft() {
+        capLeft = true;
+    }
+
+    public void UncapMovement() {
+        capLeft = false;
+        capRight = false;
     }
 }

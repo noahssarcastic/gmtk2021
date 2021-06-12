@@ -21,6 +21,29 @@ public class SwitchCharacter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) {
             Switch();
         }
+
+        Vector3 difference = characterOne.transform.position - characterTwo.transform.position;
+        float xDistance = difference.x;
+        if (Mathf.Abs(xDistance) > 10f) {
+            CapMovement(xDistance);
+        } else {
+            UncapMovement();
+        }
+    }
+
+    private void CapMovement(float xDirection) {
+        if (xDirection > 0) {
+            controllerOne.CapRight();
+            controllerTwo.CapLeft();
+        } else {
+            controllerOne.CapLeft();
+            controllerTwo.CapRight();
+        }
+    }
+
+    private void UncapMovement() {
+        controllerOne.UncapMovement();
+        controllerTwo.UncapMovement();
     }
 
     private void Switch() {
