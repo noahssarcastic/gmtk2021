@@ -17,6 +17,10 @@ public class Controller : MonoBehaviour
 
     [SerializeField] private bool isActive = true;
 
+    [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;
+
+    private Vector2 velocity = Vector3.zero;
+
     private BoxCollider2D playerCollider;
     private Rigidbody2D playerRigidbody;
 
@@ -84,16 +88,21 @@ public class Controller : MonoBehaviour
     }
 
     private void Move() {
-        if (isMoving) {
-            Vector2 velocity = movement * playerSpeed;
-            if (!isGrounded) {
-                // Reduce control in air
-                velocity *= airSpeedModifier;
-            } 
-            playerRigidbody.AddForce(velocity);
-        } else if (isGrounded) {
-            ResetHorizontalVelocity();
-        }
+        // if (isMoving) {
+        //     Vector2 velocity = movement * playerSpeed;
+        //     if (!isGrounded) {
+        //         // Reduce control in air
+        //         velocity *= airSpeedModifier;
+        //     } 
+        //     playerRigidbody.AddForce(velocity);
+        // } else if (isGrounded) {
+        //     ResetHorizontalVelocity();
+        // }
+
+        // Move the character by finding the target velocity
+        Vector3 targetVelocity = new Vector2(movement.x * 10f, playerRigidbody.velocity.y);
+        // And then smoothing it out and applying it to the character
+        playerRigidbody.velocity = Vector2.SmoothDamp(playerRigidbody.velocity, targetVelocity, ref velocity, m_MovementSmoothing);
     }
 
     private void ResetHorizontalVelocity() {
