@@ -15,6 +15,8 @@ public class Controller : MonoBehaviour
     [SerializeField] private float fallMultiplier = 2.5f;
     [SerializeField] private float lowJumpMultiplier = 2f;
 
+    [SerializeField] private bool isActive = true;
+
     private BoxCollider2D playerCollider;
     private Rigidbody2D playerRigidbody;
 
@@ -33,13 +35,9 @@ public class Controller : MonoBehaviour
     }
 
     void Update() {
-        // Update ground check
-        isGrounded = playerIsGrounded();
+        if (!isActive) return;
 
-        // Get horizontal movement
-        Vector2 input = new Vector2(Input.GetAxis("Horizontal"), 0);
-        isMoving = input.x != 0f;
-        movement = input;
+        UpdateInput();
 
         // If the input is moving the player right and the player is facing left...
         if (movement.x > 0 && !facingRight)
@@ -54,7 +52,7 @@ public class Controller : MonoBehaviour
         
         // Add jump force
         if (Input.GetButtonDown("Jump") && isGrounded) {
-            playerRigidbody.AddForce(Vector2.up * jumpMultiplier);
+            Jump();
         }
 
         // Change gravity curve
@@ -70,6 +68,22 @@ public class Controller : MonoBehaviour
     }
 
     void FixedUpdate() {
+        if (!isActive) return;
+
+        Move();
+    }
+
+    private void UpdateInput() {
+        // Update ground check
+        isGrounded = PlayerIsGrounded();
+
+        // Get horizontal movement
+        Vector2 input = new Vector2(Input.GetAxis("Horizontal"), 0);
+        isMoving = input.x != 0f;
+        movement = input;
+    }
+
+    private void Move() {
         if (isMoving) {
             Vector2 velocity = movement * playerSpeed;
             if (!isGrounded) {
@@ -78,12 +92,19 @@ public class Controller : MonoBehaviour
             } 
             playerRigidbody.AddForce(velocity);
         } else if (isGrounded) {
-            // Reset horizontal velocity
-            playerRigidbody.velocity *= new Vector2(0, 1);
+            ResetHorizontalVelocity();
         }
     }
 
-    private bool playerIsGrounded() {
+    private void ResetHorizontalVelocity() {
+        playerRigidbody.velocity *= new Vector2(0, 1);
+    }
+
+    private void Jump() {
+        playerRigidbody.AddForce(Vector2.up * jumpMultiplier);
+    }
+
+    private bool PlayerIsGrounded() {
         Vector2 playerCenter = playerCollider.bounds.center;
         float playerHeight = playerCollider.bounds.size.y;
         float centerToCenter = (playerHeight / 2) + (groundCheckDepth / 2);
@@ -108,4 +129,9 @@ public class Controller : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+    public void ToggleActive() {
+        ResetHorizontalVelocity();
+        isActive = !isActive;
+    }
 }
