@@ -27,13 +27,13 @@ public class Piston : MonoBehaviour
     }
 
     private void Raise() {
-        GetComponent<SpriteRenderer>().color = Color.green;
+        // GetComponent<SpriteRenderer>().color = Color.green;
         Vector3 destination = startPosition + Vector3.up * height;
         Move(destination);
     }
 
     private void Lower() {
-        GetComponent<SpriteRenderer>().color = Color.red;
+        // GetComponent<SpriteRenderer>().color = Color.red;
         Move(startPosition);
     }
 

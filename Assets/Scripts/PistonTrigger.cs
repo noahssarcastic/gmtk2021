@@ -19,11 +19,11 @@ public class PistonTrigger : MonoBehaviour
         if (raising && collisionCounter == 0) {
             piston.SetRaising(false);
             raising = false;
-            GetComponent<SpriteRenderer>().color = Color.red;
+            // GetComponent<SpriteRenderer>().color = Color.red;
         } else if (!raising && collisionCounter > 0) {
             piston.SetRaising(true);
             raising = true;
-            GetComponent<SpriteRenderer>().color = Color.green;
+            // GetComponent<SpriteRenderer>().color = Color.green;
         }
     }
 

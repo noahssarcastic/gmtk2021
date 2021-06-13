@@ -15,13 +15,13 @@ public class BoosterTrigger : MonoBehaviour
     }
 
     void Start() {
-        GetComponent<SpriteRenderer>().color = Color.red;
+        // GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     void Update() {
         if (collisionCounter > 0) {
             booster.SetIsActive(true);
-            GetComponent<SpriteRenderer>().color = Color.green;
+            // GetComponent<SpriteRenderer>().color = Color.green;
         }
     }
 
@@ -38,7 +38,7 @@ public class BoosterTrigger : MonoBehaviour
             audioSource.PlayOneShot(releaseAudioClip, 1);
             if (collisionCounter == 0) {
                 booster.SetIsActive(false);
-                GetComponent<SpriteRenderer>().color = Color.red;
+                // GetComponent<SpriteRenderer>().color = Color.red;
             }
         }
     }

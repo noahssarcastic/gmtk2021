@@ -18,13 +18,13 @@ public class Gate : MonoBehaviour
 
     private void Open() {
         GetComponent<Collider2D>().enabled = false;
-        GetComponent<SpriteRenderer>().color = Color.grey;
+        GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
         GetComponent<AudioSource>().PlayOneShot(openAudioClip, 1);
     }
 
     private void Close() {
         GetComponent<Collider2D>().enabled = true;
-        GetComponent<SpriteRenderer>().color = Color.red;
+        GetComponent<SpriteRenderer>().color = Color.white;
         GetComponent<AudioSource>().PlayOneShot(closeAudioClip, 1);
     }
 

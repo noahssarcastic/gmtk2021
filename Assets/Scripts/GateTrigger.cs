@@ -15,13 +15,13 @@ public class GateTrigger : MonoBehaviour
     }
 
     void Start() {
-        GetComponent<SpriteRenderer>().color = Color.red;
+        // GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     void Update() {
         if (collisionCounter > 0) {
             gate.SetOpen(true);
-            GetComponent<SpriteRenderer>().color = Color.green;
+            // GetComponent<SpriteRenderer>().color = Color.green;
         }
     }
 
@@ -38,7 +38,7 @@ public class GateTrigger : MonoBehaviour
             audioSource.PlayOneShot(releaseAudioClip, 1);
             if (collisionCounter == 0) {
                 gate.SetOpen(false);
-                GetComponent<SpriteRenderer>().color = Color.red;
+                // GetComponent<SpriteRenderer>().color = Color.red;
             }
         }
     }
