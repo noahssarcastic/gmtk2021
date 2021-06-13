@@ -24,6 +24,7 @@ public class CourageBooster : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider) {
         if(collider.gameObject.tag == "Player") {
             collider.gameObject.GetComponent<Status>().SetCourageModifier(courageModifier);
+            gameObject.GetComponent<AudioSource>().Play();
         }
     }
 
