@@ -6,9 +6,13 @@ public class CourageBooster : MonoBehaviour
 {
     [SerializeField] private float courageModifier = 2;
     [SerializeField] private bool isActive = true;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip enterAudioClip;
+    [SerializeField] private AudioClip exitAudioClip;
 
     void Start() {
-        gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+        GetComponent<SpriteRenderer>().color = Color.magenta;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -24,13 +28,14 @@ public class CourageBooster : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider) {
         if(collider.gameObject.tag == "Player") {
             collider.gameObject.GetComponent<Status>().SetCourageModifier(courageModifier);
-            gameObject.GetComponent<AudioSource>().Play();
+            audioSource.PlayOneShot(enterAudioClip, 1);
         }
     }
 
     void OnTriggerExit2D(Collider2D collider) {
         if(collider.gameObject.tag == "Player") {
             collider.gameObject.GetComponent<Status>().ResetCourageModifier();
+            audioSource.PlayOneShot(exitAudioClip, 1);
         }
     }
 

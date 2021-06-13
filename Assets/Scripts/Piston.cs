@@ -9,8 +9,13 @@ public class Piston : MonoBehaviour
     [SerializeField] private float time = 0.01f;
     private Vector3 startPosition;
 
+    [SerializeField] private AudioClip raiseAudioClip;
+    [SerializeField] private AudioClip lowerAudioClip;
+    private AudioSource audioSource;
+
     void Awake() {
         startPosition = gameObject.transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -34,6 +39,11 @@ public class Piston : MonoBehaviour
 
     public void SetRaising(bool value) {
         raising = value;
+        if (value) {
+            audioSource.PlayOneShot(raiseAudioClip, 1);
+        } else {
+            audioSource.PlayOneShot(lowerAudioClip, 1);
+        }
     }
 
     private void Move(Vector3 destination) {
