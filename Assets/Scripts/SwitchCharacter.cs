@@ -6,48 +6,48 @@ public class SwitchCharacter : MonoBehaviour
 {
     [SerializeField] private GameObject characterOne;
     [SerializeField] private GameObject characterTwo;
-
-    [SerializeField] private bool characterOneStart = true;
-
     private Controller controllerOne;
     private Controller controllerTwo;
+
+    [SerializeField] private bool characterOneStarts = true;
+    private bool characterOneActive;
 
     void Awake() {
         controllerOne = characterOne.GetComponent<Controller>();
         controllerTwo = characterTwo.GetComponent<Controller>();
+        characterOneActive = characterOneStarts;
+    }
+
+    void Start() {
+        if (characterOneStarts) {
+            controllerOne.SetActive(true);
+            controllerTwo.SetActive(false);
+        } else {
+            controllerOne.SetActive(false);
+            controllerTwo.SetActive(true);
+        }
     }
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {
             Switch();
+            Debug.Log("switch");
         }
-
-        Vector3 difference = characterOne.transform.position - characterTwo.transform.position;
-        float xDistance = difference.x;
-        if (Mathf.Abs(xDistance) > 10f) {
-            CapMovement(xDistance);
-        } else {
-            UncapMovement();
-        }
-    }
-
-    private void CapMovement(float xDirection) {
-        if (xDirection > 0) {
-            controllerOne.CapRight();
-            controllerTwo.CapLeft();
-        } else {
-            controllerOne.CapLeft();
-            controllerTwo.CapRight();
-        }
-    }
-
-    private void UncapMovement() {
-        controllerOne.UncapMovement();
-        controllerTwo.UncapMovement();
     }
 
     private void Switch() {
-        controllerOne.ToggleActive();
-        controllerTwo.ToggleActive();
+        if (characterOneActive) {
+            controllerOne.SetActive(false);
+            controllerTwo.SetActive(true);
+            characterOneActive = false;
+        } else {
+            controllerOne.SetActive(true);
+            controllerTwo.SetActive(false);
+            characterOneActive = true;
+        }
+    }
+
+    public bool GetCharacterOneActive() {
+        return characterOneActive;
     }
 }

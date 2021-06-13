@@ -150,9 +150,9 @@ public class Controller : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
-    public void ToggleActive() {
+    public void SetActive(bool active) {
         ResetHorizontalVelocity();
-        isActive = !isActive;
+        isActive = active;
     }
 
     public bool getIsActive() {
