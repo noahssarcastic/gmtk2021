@@ -47,9 +47,9 @@ public class CameraController : MonoBehaviour
 
     private void FocusCamera() {
         Vector2 position;
-        if (playerOne.GetComponent<Controller>().getIsActive()) {
+        if (playerOne.GetComponent<Controller>().GetIsActive()) {
             position = playerOne.transform.position;
-        } else if (playerTwo.GetComponent<Controller>().getIsActive()) {
+        } else if (playerTwo.GetComponent<Controller>().GetIsActive()) {
             position = playerTwo.transform.position;
         } else {
             position = Vector2.zero;

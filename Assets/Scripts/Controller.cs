@@ -99,17 +99,6 @@ public class Controller : MonoBehaviour
     }
 
     private void Move() {
-        // if (isMoving) {
-        //     Vector2 velocity = movement * playerSpeed;
-        //     if (!isGrounded) {
-        //         // Reduce control in air
-        //         velocity *= airSpeedModifier;
-        //     } 
-        //     playerRigidbody.AddForce(velocity);
-        // } else if (isGrounded) {
-        //     ResetHorizontalVelocity();
-        // }
-
         // Move the character by finding the target velocity
         Vector3 targetVelocity = new Vector2(movement.x * 10f, playerRigidbody.velocity.y);
         // And then smoothing it out and applying it to the character
@@ -155,7 +144,7 @@ public class Controller : MonoBehaviour
         isActive = active;
     }
 
-    public bool getIsActive() {
+    public bool GetIsActive() {
         return isActive;
     }
 

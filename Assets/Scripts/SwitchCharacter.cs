@@ -10,12 +10,12 @@ public class SwitchCharacter : MonoBehaviour
     private Controller controllerTwo;
 
     [SerializeField] private bool characterOneStarts = true;
-    private bool characterOneActive;
+    private bool characterOneIsActive;
 
     void Awake() {
         controllerOne = characterOne.GetComponent<Controller>();
         controllerTwo = characterTwo.GetComponent<Controller>();
-        characterOneActive = characterOneStarts;
+        characterOneIsActive = characterOneStarts;
     }
 
     void Start() {
@@ -31,23 +31,22 @@ public class SwitchCharacter : MonoBehaviour
     void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {
             Switch();
-            Debug.Log("switch");
         }
     }
 
     private void Switch() {
-        if (characterOneActive) {
+        if (characterOneIsActive) {
             controllerOne.SetActive(false);
             controllerTwo.SetActive(true);
-            characterOneActive = false;
+            characterOneIsActive = false;
         } else {
             controllerOne.SetActive(true);
             controllerTwo.SetActive(false);
-            characterOneActive = true;
+            characterOneIsActive = true;
         }
     }
 
-    public bool GetCharacterOneActive() {
-        return characterOneActive;
+    public bool GetCharacterOneIsActive() {
+        return characterOneIsActive;
     }
 }
