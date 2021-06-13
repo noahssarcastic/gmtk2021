@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class CourageBooster : MonoBehaviour
 {
@@ -11,17 +12,19 @@ public class CourageBooster : MonoBehaviour
     [SerializeField] private AudioClip exitAudioClip;
 
     void Start() {
-        GetComponent<SpriteRenderer>().color = Color.magenta;
+        // GetComponent<SpriteRenderer>().color = Color.magenta;
         audioSource = GetComponent<AudioSource>();
     }
 
     void Update() {
         if (isActive && !gameObject.GetComponent<Collider2D>().enabled) {
             gameObject.GetComponent<Collider2D>().enabled = true;
-            gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+            GetComponent<Light2D>().enabled = true;
+            // gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
         } else if (!isActive && gameObject.GetComponent<Collider2D>().enabled) {
             gameObject.GetComponent<Collider2D>().enabled = false;
-            gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
+            // gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
+            GetComponent<Light2D>().enabled = false;
         }
     }
 
