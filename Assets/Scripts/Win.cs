@@ -7,7 +7,23 @@ public class Win : MonoBehaviour
 {
     [SerializeField] private int levelToLoad;
 
-    void OnTriggerEnter2D(Collider2D other){
-        SceneManager.LoadScene(levelToLoad);
+    private int playerCount;
+
+    void Update() {
+        if (playerCount >= 2) {
+            SceneManager.LoadScene(levelToLoad);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.tag == "Player") {
+            playerCount += 1;
+        }  
+    }
+
+    void OnTriggerExit2D(Collider2D collider) {
+        if (collider.gameObject.tag == "Player") {
+            playerCount -= 1;
+        }
     }
 }

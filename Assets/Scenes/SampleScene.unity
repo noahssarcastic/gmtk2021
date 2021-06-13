@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 154173877}
   m_Layer: 11
   m_Name: Radar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 255697907}
   m_Layer: 11
   m_Name: Oggy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afcedacabda3fa545bf1912235d45300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  courageModifier: 1.5
+  courageModifier: 1
 --- !u!1001 &486719004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -957,11 +957,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7245539133454865908, guid: e9e246612916fa34fb4dc5a09bf047b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.52
+      value: -17.21
       objectReference: {fileID: 0}
     - target: {fileID: 7245539133454865908, guid: e9e246612916fa34fb4dc5a09bf047b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.05
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 7245539133454865908, guid: e9e246612916fa34fb4dc5a09bf047b4, type: 3}
       propertyPath: m_LocalPosition.z

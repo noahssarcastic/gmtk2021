@@ -211,11 +211,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7620703283586576331, guid: 80070ed007593824da60574c2a38c878, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.3067102
+      value: 6.26
       objectReference: {fileID: 0}
     - target: {fileID: 7620703283586576331, guid: 80070ed007593824da60574c2a38c878, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.3187711
+      value: -2.49
       objectReference: {fileID: 0}
     - target: {fileID: 7620703283586576331, guid: 80070ed007593824da60574c2a38c878, type: 3}
       propertyPath: m_LocalPosition.z
@@ -421,11 +421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7620703283586576331, guid: 80070ed007593824da60574c2a38c878, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.7728624
+      value: 6.772862
       objectReference: {fileID: 0}
     - target: {fileID: 7620703283586576331, guid: 80070ed007593824da60574c2a38c878, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.95
+      value: -4.0262604
       objectReference: {fileID: 0}
     - target: {fileID: 7620703283586576331, guid: 80070ed007593824da60574c2a38c878, type: 3}
       propertyPath: m_LocalPosition.z
@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 835575897}
   m_Layer: 11
   m_Name: Oggy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afcedacabda3fa545bf1912235d45300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  courageModifier: 1.5
+  courageModifier: 1
 --- !u!95 &835575898
 Animator:
   serializedVersion: 3
@@ -574,7 +574,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.016142294}
+  m_Offset: {x: 0, y: -0.091234535}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -585,7 +585,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6078012, y: 0.51893294}
+  m_Size: {x: 0.4210542, y: 0.3041793}
   m_EdgeRadius: 0
 --- !u!212 &835575902
 SpriteRenderer:
@@ -646,7 +646,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835575896}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.13213968, y: 0.04141409, z: 7.5211105}
+  m_LocalPosition: {x: -0.13213968, y: -0.63, z: 7.5211105}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 1161068007}
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 981163058}
   m_Layer: 11
   m_Name: Radar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -833,7 +833,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981163057}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.1321397, y: 0.04141409, z: 7.5211105}
+  m_LocalPosition: {x: -4.1321397, y: -0.53, z: 7.5211105}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 1161068007}
@@ -1547,11 +1547,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7620703283586576331, guid: 80070ed007593824da60574c2a38c878, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.368717
+      value: 8.32
       objectReference: {fileID: 0}
     - target: {fileID: 7620703283586576331, guid: 80070ed007593824da60574c2a38c878, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.1027546
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 7620703283586576331, guid: 80070ed007593824da60574c2a38c878, type: 3}
       propertyPath: m_LocalPosition.z
