@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    [SerializeField] private float playerSpeed = 20f;
+    // [SerializeField] private float playerSpeed = 20f;
     
-    [SerializeField] [Range(0, 1)] private float airSpeedModifier = 1f;
+    // [SerializeField] [Range(0, 1)] private float airSpeedModifier = 1f;
 
     [SerializeField] private LayerMask isGround;
     [SerializeField] private float groundCheckDepth = 0.1f;
